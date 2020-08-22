@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>  
+    <!-- Usuario id = 1 (paciente) -->
+    <USUARIO CL_NOME="Catarina Luiza" CL_EMAIL = "catarinaluiza@gmail.com" CL_SENHA = "catarina123" 
+     CL_TEL_DDD="81" CL_TEL_NUMERO="32226666" CL_TEL_TIPO="RESIDENCIAL">
+    </USUARIO>
+    
+    <!-- Usuario id = 2 (paciente) -->
+    <USUARIO CL_NOME="Joao Augusto" CL_EMAIL = "Joaoaugusto@gmail.com" CL_SENHA = "joao123" 
+     CL_TEL_DDD="81" CL_TEL_NUMERO="944441111" CL_TEL_TIPO="CELULAR">
+    </USUARIO>
+             
+</dataset>

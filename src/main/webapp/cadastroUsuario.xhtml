@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Cadastro Usuário</title>
+       
+    </h:head>
+
+    <h:body>
+        <ui:include src="menu.xhtml"/>             
+        
+        <h:form id="formCadUser">
+
+            <p:fieldset legend="Cadastro Usuário">
+                <p:panelGrid columns="3">
+                    <p:outputLabel value="Nome:"></p:outputLabel>
+                    <p:inputText id="txtNome" value="#{usuarioBean.cadastro.nome}"
+                                 required="true" requiredMessage="O nome é obrigatório!"></p:inputText>
+                    <p:message id="msgNome" for="txtNome"></p:message>
+                    <p:outputLabel value="Email:"></p:outputLabel>
+                    <p:inputText id="txtEmail" value="#{usuarioBean.cadastro.email}"
+                                 required="true" requiredMessage="O email é obrigatório!"></p:inputText>
+                     <p:message id="msgEmail" for="txtEmail"></p:message>
+                    <p:outputLabel value="Senha"></p:outputLabel>
+                    <p:password id="txtSenha" value="#{usuarioBean.cadastro.senha}"
+                                required="true" requiredMessage="A senha é obrigatória!"></p:password>
+                    <p:message id="msgSenha" for="txtSenha"></p:message>
+                    <h:outputText value="Telefone:"></h:outputText>
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="DDD:"></p:outputLabel>
+                        <p:inputText id="txtDdd" value="#{usuarioBean.cadastro.ddd}"></p:inputText>
+                        <p:outputLabel value="Número:"></p:outputLabel>
+                        <p:inputText id="txtNumero" value="#{usuarioBean.cadastro.numero}"></p:inputText>
+                        <p:outputLabel value="Tipo:"></p:outputLabel>
+                        <p:inputText id="txtTipo" value="#{usuarioBean.cadastro.tipo}"></p:inputText>
+                    </p:panelGrid>
+                </p:panelGrid>
+                <p:outputLabel></p:outputLabel><br/>
+                <p:commandButton value="Cadastrar" oncomplete="PF('widDialCadUsuario').show()"/>
+            </p:fieldset>
+
+            <p:dialog id="dialCadUsuario" visible="false" modal="true"
+                      resizable="false" 
+                      widgetVar="widDialCadUsuario">
+                <f:facet name="header">Atenção!</f:facet>
+                <p:outputLabel value="Você realmente deseja cadastrar esse usuário"></p:outputLabel>
+                <p:commandButton value="Sim" action="#{usuarioBean.salvar()}"
+                                 oncomplete="PF('widDialCadUsuario').hide()"
+                                 update="@form"/>
+                <p:commandButton value="Não" oncomplete="PF('widDialCadUsuario').hide()"/>
+
+            </p:dialog>
+        </h:form><br/>
+
+        
+
+    </h:body>
+</html>
+
