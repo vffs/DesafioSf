@@ -30,36 +30,62 @@ public class Persistencia {
 
     public void insert(Object o) {
         EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(o);
-        em.flush();
-        em.getTransaction().commit();;
-        em.close();
+        try{
+            em.getTransaction().begin();
+            em.persist(o);
+            em.flush();
+            em.getTransaction().commit();
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            em.getTransaction().rollback();
+            
+        }
+        finally{
+         if(em != null) {
+            em.close();
+         }
+        }
     }
 
     public void update(Object o) {
         EntityManager em = emf.createEntityManager();
-
+        
+        try{
         em.getTransaction().begin();
 
         em.merge(o);
         em.getTransaction().commit();
-        em.close();
+        
+        }catch(Exception e){
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        }
+        finally{
+            if(em != null){
+              em.close();  
+            }
+        }
+        
     }
 
     public List read(String query, Class c) {
+        List listaRetornada;
         EntityManager em = emf.createEntityManager();
-
-        List listaRetornada = em.createQuery(query, c).getResultList();
-
-        em.close();
+        
+        try{
+             listaRetornada = em.createQuery(query, c).getResultList();
+             
+        }finally{
+            em.close();
+        }
 
         return listaRetornada;
     }
 
     public void delete(Object o) {
         EntityManager em = emf.createEntityManager();
-
+        try{
         Object oDelete = o;
 
         if (!em.contains(o)) {
@@ -69,7 +95,17 @@ public class Persistencia {
         em.getTransaction().begin();
         em.remove(oDelete);
         em.getTransaction().commit();
-        em.close();
+        
+        }catch(Exception e){
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        }
+        finally{
+            if(em != null){
+               em.close();
+            }
+        }
+       
 
     }
     

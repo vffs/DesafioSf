@@ -34,12 +34,6 @@ public class UsuarioController {
         
         public String salvar(){
             
-           /* if(cadastro.getNome().contains("select") || cadastro.getNome().contains("delete")){
-            FacesContext.getCurrentInstance().addMessage("formCadProduto:txtNome", 
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro!!!","Você "
-                            + "tentou cadastrar um valor irregular!"));
-            return null;
-        }*/
             inserir();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário cadastrado com sucesso!"));
             return "listarUsuario.xhtml";
@@ -53,7 +47,7 @@ public class UsuarioController {
         
         public String alterarRedirecionar(){
             alterar();
-            //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário alterado com sucesso!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário alterado com sucesso!"));
             return "listarUsuario.xhtml";
         }
         
