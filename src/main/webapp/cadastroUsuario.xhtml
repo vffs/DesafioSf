@@ -48,7 +48,7 @@
                       widgetVar="widDialCadUsuario">
                 <f:facet name="header">Atenção!</f:facet>
                 <p:outputLabel value="Você realmente deseja cadastrar esse usuário"></p:outputLabel>
-                <p:commandButton value="Sim" action="#{usuarioBean.salvar()}"
+                <p:commandButton value="Sim" action="#{usuarioBean.inserir()}"
                                  oncomplete="PF('widDialCadUsuario').hide()"
                                  update="@form"/>
                 <p:commandButton value="Não" oncomplete="PF('widDialCadUsuario').hide()"/>

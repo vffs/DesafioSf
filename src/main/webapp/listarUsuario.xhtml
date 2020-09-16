@@ -73,7 +73,7 @@
             <p:commandButton value="Apresentar" oncomplete="PF('widDiaListaUsuario').show()"
                              update="dialListaUsuario"/>
             <p:commandButton value="Alterar" action="alterarUsuario.xhtml" ajax="false"/>
-            <p:commandButton value="Deletar" action="#{usuarioBean.deletarComMensagem()}" 
+            <p:commandButton value="Deletar" action="#{usuarioBean.deletar()}" 
                              update="tabelaUser" >
                 <p:confirm header="Atenção!" message="Você deseja deletar realmente este usuario #{usuarioBean.selecionar.nome}?"/>
             </p:commandButton>
