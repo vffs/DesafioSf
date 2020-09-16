@@ -48,6 +48,8 @@ public class TesteUsuario extends TesteBase {
         this.usuarios = this.uc.recuperarTodos();
         
         assertEquals(this.usuarios.size(), 2);
+        assertEquals("Joao Augusto", this.usuarios.get(0).getNome());
+        assertEquals("Maria Joaquina", this.usuarios.get(1).getNome());
 
     }
 
